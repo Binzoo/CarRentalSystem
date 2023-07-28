@@ -4,13 +4,13 @@ using System.Windows.Forms;
 
 namespace CarRentalApp
 {
-    public partial class Form1 : Form
+    public partial class AddRentalRecord : Form
     {
-        private readonly CarRentalEntities2 carRentalEntities;
-        public Form1()
+        private readonly CarRentalEntities2 _db;
+        public AddRentalRecord()
         {
             InitializeComponent();
-            carRentalEntities = new CarRentalEntities2();
+            _db = new CarRentalEntities2();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -46,8 +46,8 @@ namespace CarRentalApp
                     rentalRecord.DateReturn = dateReturn;
                     rentalRecord.Cost = (decimal)cost;
                     rentalRecord.TypeOfCardId = (int)cbTypeOfCar.SelectedValue;
-                    carRentalEntities.CarRentalRecords.Add(rentalRecord);
-                    carRentalEntities.SaveChanges();
+                    _db.CarRentalRecords.Add(rentalRecord);
+                    _db.SaveChanges();
 
                     MessageBox.Show($"Thank you for renting {customerName}.\nYour Rented date is {dateRented}\nReturn date is {dateReturn}\nCar Type is {typeOfCar}\nCost : {cost}");
                 }
@@ -64,10 +64,12 @@ namespace CarRentalApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var cars = carRentalEntities.TypesOfCars.ToList();
+            var cars = _db.TypesOfCars.ToList();
             cbTypeOfCar.DisplayMember = "Name";
             cbTypeOfCar.ValueMember= "id";
             cbTypeOfCar.DataSource = cars;
         }
+
+       
     }
 }

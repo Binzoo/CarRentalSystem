@@ -1,6 +1,6 @@
 ﻿namespace CarRentalApp
 {
-    partial class Form1
+    partial class AddRentalRecord
     {
         /// <summary>
         /// Required designer variable.
@@ -150,7 +150,7 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Cost";
             // 
-            // Form1
+            // AddRentalRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -167,7 +167,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbCustomerName);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "AddRentalRecord";
             this.Text = "Car Rental System";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
